@@ -2,319 +2,208 @@
 //comision 1
 
 let screens = [];
-let diapositiva = "inicio";
-let phrases = ['dalia pastene-alesio fiaccola. comisión 1 - PMIW', 'el sr howard mira perplejo a los niños arrojar a michael por la ventana diciendole ¡te odiamos! y decide no volver a dar clases nunca más', 'un colega le dice que hay un cargo para cubrir en la escuela y le ofrece regresar',
-'el sr howard se retrae en su casa escribienso sus poesías e historias para presentarlas', 'el desconfía de los niños y los aterroriza, siempre piensa que traman algo','no tiene exíto presentando lo que escribe en su pueblo por lo que debe tomar una decision',
-'volviendo a casa ve a dos alumnos jugando','enferma y no puede pagar sus medicinas y lentamente su salud empeora', 'logró conseguir su primera oportunidad presentando tus historias y sus poesías, teniendo mucho exito', 'les pregunta enojado a que estan jugando', 'los niños le muestran el juego de los venenos',
-'continúa hacia su casa pensando en el juego de los niños y odiándolos en silencio', 'ya es sabado. ve a los niños jugar frente a su ventana, sobre todo ve a una niña en la zanja jugando con una calavera. el sr howard sale furioso tras ella', 
-'se tira sobre ella con intención de golpearla pero se detiene y la niña se va llorando','la niña le cuenta todo a su padre y a su hermano mayor, y estos persiguen al sr howard furiosos para golpearlo','malherido va hacia la acera de oak bay. donde no puede mantenerse de pie y se acuesta en el suelo',
-'al día siguiente aterroriza a otros niños que estaban jugando en el mismo lugar y los persigue hasta oak bay', 'en la persecución el sr howard tropieza y cae en un pozo golpeandose la cabeza con una tubería y pierde la conciencia',
-'muere enterrado', 'muere debido a los golpes recibidos por los familiares de la niña','muere en su cama debido a su enfermedad', 'próspero y con una vida nueva como escritor, el sr howard no volvió a ser profesor y se dedicó a su pasión'];
+let diapositiva = "h2";
+let musica;
+let sfx;
+let phrases = ['bienvenidos','el sr howard mira perplejo a los niños\n  arrojar a michael por la ventana\n  y decide no volver a dar clases nunca más', 'un colega le dice que hay un cargo para\n  cubrir  en la escuela y le ofrece regresar', 'el profesor mira hacia la escuela desconfiado', 'los alumnos ven al señor howard\n regresando al salón',
+'caminando ve a unos niños jugando a\n un juego extraño', 'se retiene en su casa escribiendo poesías\n e historias para presentarlas en el pueblo', 'no está teniendo éxito presentando lo que\n escribe, ahora debe decidir','les pregunta enojado a que están jugando\n ¿que están haciendo?',
+'los niños le muestran el juego de los venenos,\n un juego donde hay que saltar por encima de una\n baldoza con el nombre de una persona muerta.\n si salta sobre la tumba cae y muere', 'camina hacia su casa odiando a los\n niños en silencio', 'ya es sábado, frente a su ventana ve a\n unos niños jugando y a una niña en una zanja\n jugando a la calavera',
+'furioso sale de su casa tras la niña', 'se abalanza sobre la niña con intención\n de golpearla, pero se detiene y la niña\n se va llorando', 'enferma y no puede pagar sus medicinas,\n por lo que su salud empeora', 'muere en su cama debido a su enfermedad', 'logró conseguir una oportunidad para presentar\n sus historias y poesías',
+'próspero y, el señor howard tiene una\n nueva vida exitosa como escritor', 'al día siguiente aterroriza a los otros\n niños persiguiéndolos hasta la calle Oak Bay','tropieza y cae en un pozo, golpeándose \nla cabeza con una tubería','muere enterrado y los niños saltan sobre la baldoza\n con su nombre escrito', 'tras lo que contó la niña, su padre y su hermano\n van directo al señor howard para golpearlo\n fuertemente',
+'malherido, el sr howard camina por la calle Oak\n Bay y se acuesta en el suelo', 'muere debido a los golpes recibidos\n por la familia de la niña','gracias por todo'];
+
+function preload(){
+  screens[0] = loadImage('data/img1.jpg');
+  screens[1] = loadImage('data/img2.jpg');
+  screens[2] = loadImage('data/img3.jpg');
+  screens[3] = loadImage('data/imga1.jpg');
+  screens[4] = loadImage('data/imga2.jpg');
+  screens[5] = loadImage('data/imga3.jpg');
+  screens[6] = loadImage('data/imgb1.jpg');
+  screens[7] = loadImage('data/imgb2.jpg');
+  screens[8] = loadImage('data/imgc1.jpg');
+  screens[9] = loadImage('data/imgc2.jpg');
+  screens[10] = loadImage('data/imgd1.jpg');
+  screens[11] = loadImage('data/imgd2.jpg');
+  screens[12] = loadImage('data/imgd3.jpg');
+  screens[13] = loadImage('data/imgd4.jpg');
+  screens[14] = loadImage('data/imge1.jpg');
+  screens[15] = loadImage('data/imge2.jpg');
+  screens[16] = loadImage('data/imgf1.jpg');
+  screens[17] = loadImage('data/imgf2.jpg');
+  screens[18] = loadImage('data/imgg1.jpg');
+  screens[19] = loadImage('data/imgg2.jpg');
+  screens[20] = loadImage('data/imgg3.jpg');
+  screens[21] = loadImage('data/imgh1.jpg');
+  screens[22] = loadImage('data/imgh2.jpg');
+  screens[23] = loadImage('data/imgh3.jpg');
+  screens[24] = loadImage('data/imgcreditos.jpg');
+  musica = loadSound('data/musica.mp3');
+  sfx = loadSound('data/whoosh.mp3');
+}
 
 function setup() {
   createCanvas(640, 480);
-  textSize(30);
+  textSize(22);
 }
 
 
 function draw() {
-  if(diapositiva === "inicio"){
-    background(255);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 1"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 2"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 3A"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 3B"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 4A"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }
-    if(diapositiva === "pantalla 4B"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 5C"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 6C"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 5D"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 6D"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-    if(diapositiva === "pantalla 7D"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 8G"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 9G"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 8H"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "pantalla 9H"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "final original"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-   if(diapositiva === "final alternativo 1"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-  if(diapositiva === "final alternativo 2"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-  if(diapositiva === "final alternativo 3"){
-    background(200);
-    fill(0);
-    text(diapositiva, 200, 200);
-    fill(255, 0, 0);
-    rect(120, 300, 100, 50);
-    rect(360, 300, 100, 50);
-    clickNext(120, 300, 100, 50);
-  }
-}
-
-function botton1(X, Y, tamX, tamY, textB){
-  if(inBotton(X, Y, tamX, tamY)){
-    fill(255, 0 ,255);
-  }else{
-    fill(0, 255, 255);
-  }
-  rect(X, Y, tamX, tamY);
-}
-
-function botton1(X, Y, tamX, tamY, textB){
-  if(inBotton1(X, Y, tamX, tamY)){
-    fill(0, 255 ,255);
-  }else{
-    fill(0, 255, 255);
-  }
-  rect(X, Y, tamX, tamY);
-}
-
-function botton2(X, Y, tamX, tamY, textB){
-  if(inBotton2(X, Y, tamX, tamY)){
-    fill(0, 255 ,255);
-  }else{
-    fill(0, 255, 255);
-  }
-  rect(X, Y, tamX, tamY);
-}
-
-function mouseClicked(){
-  //pantallas de un solo boton
-  if(diapositiva === "inicio"){
-    siguiente("inicio", "pantalla 1");
-  }else if(diapositiva === "pantalla 1"){
-    siguiente("pantalla 1", "pantalla 2");
-  }else if(diapositiva === "pantalla 2"){
-    bifurcacion("pantalla 2","pantalla 3A","pantalla 3B");
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }else if(diapositiva === "pantalla 3A"){
-    siguiente("pantalla 3A", "pantalla 4A");
-  }else if(diapositiva === "pantalla 4A"){
-    bifurcacion("pantalla 4A","pantalla 5C", "pantalla 5D");
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }else if(diapositiva === "pantalla 3B"){
-    siguiente("pantalla 3B", "pantalla 4B");
-  } else if(diapositiva === "pantalla 4B"){
-    bifurcacion("pantalla 4B","pantalla 5E","pantalla 5F");
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }else if(diapositiva === "pantalla 5C"){
-    siguiente("pantalla 5C","pantalla 6C");
-  } else if(diapositiva === "pantalla 5D"){
-    siguiente("pantalla 5D", "pantalla 6D");
-  }else if(diapositiva === "pantalla 6D"){
-    siguiente("pantalla 6D","pantalla 7D");
-  } else if(diapositiva === "pantalla 7D"){
-    bifurcacion("pantalla 7D","pantalla 8G","pantalla 8H");
-    clickNext(120, 300, 100, 50);
-    clickOption(360, 300, 100, 50);
-  }else if(diapositiva === "pantalla 8G"){
-    siguiente("pantalla 8G","pantalla 9G");
-  }else if(diapositiva === "pantalla 8H"){
-    siguiente("pantalla 8H","pantalla 9H");
-  }
+  musica.amp(0.5);
+  musica.play();
   
-  //finales
-  if(diapositiva === "pantalla 9G"){
-    siguiente("pantalla 9G", "final original");
-  }else if(diapositiva === "pantalla 9H"){
-    siguiente("pantalla 9H", "final alternativo 1");
-  }else if(diapositiva === "pantalla 5E"){
-    siguiente("pantalla 5E", "final alternativo 2");
-  }else if(diapositiva === "pantalla 5F"){
-    siguiente("pantalla 5F", "final alternativo 3");
+  if(diapositiva === "inicio"){
+    image(screens[0], 0, 0);
+    fill(255);
+    text(phrases[0], 240, 380);
+    botton(100, 400, 110, 50, "comenzar");
   }
-  
-  //volver al inicio
-  if(diapositiva === "final original"){
-    siguiente("final original","inicio");
-  }else if(diapositiva === "final alternativo 1"){
-    siguiente("final alternativo 1","inicio");
-  }else if(diapositiva === "final alternativo 2"){
-    siguiente("final alternativo 2","inicio");
-  }else if(diapositiva === "final alternativo 3"){
-    siguiente("final alternativo 3","inicio");
+   if(diapositiva === "1"){
+    image(screens[1], 0, 0);
+    fill(255);
+    text(phrases[1], 80, 300);
+    botton(100, 400, 110, 50, "siguiente");
   }
-}
-
-
-function clickNext(X, Y, W, H){
-  return mouseX> X && mouseX< X+W && mouseY> Y && mouseY< Y+H;
-}
-
-function clickOption(X, Y, W, H){
-  return mouseX> X && mouseX< X+W && mouseY> Y && mouseY< Y+H;
-}
-
-function siguiente(currentScreen, nextScreen){
-  clickNext(120, 300, 100, 50);
-  if(diapositiva === currentScreen){
-    if(clickNext(120, 300, 100, 50)){
-      diapositiva = nextScreen;
-    }
+   if(diapositiva === "2"){
+    image(screens[2], 0, 0);
+    fill(255);
+    text(phrases[2], 100, 350);
+    botton(100, 400, 110, 50, "vuelve al colegio");
+    botton(360, 400, 110, 50, "no vuelve al colegio");
   }
-}
-
-function bifurcacion(currentScreen, firstOption, secondOption){
-  clickOption(360, 300, 100, 50);
-  if(diapositiva === currentScreen){
-    if(clickNext(120, 300, 100, 50)){
-      diapositiva = firstOption;
-    }else if(clickOption(360, 300, 100, 50)){
-      diapositiva = secondOption;
-    }
+   if(diapositiva === "a1"){
+    image(screens[3], 0, 0);
+    fill(255);
+    text(phrases[3], 100, 380);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "a2"){
+    image(screens[4], 0, 0);
+    fill(255);
+    text(phrases[4], 100, 340);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "a3"){
+    image(screens[5], 0, 0);
+    fill(255);
+    text(phrases[5], 100, 350);
+    botton(100, 400, 110, 50, "se detiene");
+    botton(360, 400, 110, 50, "los ignora");
+  }
+   if(diapositiva === "b1"){
+    image(screens[6], 0, 0);
+    fill(255);
+    text(phrases[6], 100, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "b2"){
+    image(screens[7], 0, 0);
+    fill(255);
+    text(phrases[7], 100, 350);
+    botton(100, 400, 110, 50, "se queda en el pueblo");
+    botton(360, 400, 110, 50, "se muda a otro pueblo");
+  }
+   if(diapositiva === "c1"){
+    image(screens[8], 0, 0);
+    fill(255);
+    text(phrases[8], 100, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "c2"){
+    image(screens[9], 0, 0);
+    fill(255);
+    text(phrases[9], 80, 130);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "d1"){
+    image(screens[10], 0, 0);
+    fill(255);
+    text(phrases[10], 100, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "d2"){
+    image(screens[11], 0, 0);
+    fill(255);
+    text(phrases[11], 100, 320);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "d3"){
+    image(screens[12], 0, 0);
+    fill(255);
+    text(phrases[12], 100, 380);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "d4"){
+    image(screens[13], 0, 0);
+    fill(255);
+    text(phrases[13], 100, 330);
+    botton(100, 400, 110, 50, "entra a su casa");
+    botton(360, 400, 110, 50, "se queda mirando");
+  }
+   if(diapositiva === "e1"){
+    image(screens[14], 0, 0);
+    fill(255);
+    text(phrases[14], 100, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "e2"){
+    image(screens[15], 0, 0);
+    fill(255);
+    text(phrases[15], 100, 380);
+    botton(100, 400, 110, 50, "Fin");
+  }
+   if(diapositiva === "f1"){
+    image(screens[16], 0, 0);
+    fill(255);
+    text(phrases[16], 85, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "f2"){
+    image(screens[17], 0, 0);
+    fill(255);
+    text(phrases[17], 100, 350);
+    botton(100, 400, 110, 50, "Fin");
+  }
+   if(diapositiva === "g1"){
+    image(screens[18], 0, 0);
+    fill(255);
+    text(phrases[18], 100, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "g2"){
+    image(screens[19], 0, 0);
+    fill(255);
+    text(phrases[19], 100, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "g3"){
+    image(screens[20], 0, 0);
+    fill(255);
+    text(phrases[20], 100, 350);
+    botton(100, 400, 110, 50, "Fin");
+  }
+   if(diapositiva === "h1"){
+    image(screens[21], 0, 0);
+    fill(255);
+    text(phrases[21], 100, 330);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "h2"){
+    image(screens[22], 0, 0);
+    fill(255);
+    text(phrases[22], 100, 350);
+    botton(100, 400, 110, 50, "siguiente");
+  }
+   if(diapositiva === "h3"){
+    image(screens[23], 0, 0);
+    fill(255);
+    text(phrases[23], 100, 350);
+    botton(100, 400, 110, 50, "Fin");
+  }
+  if(dispositiva === "creditos"){
+    image(screens[24], 0, 0);
+    fill(255);
+    text(phrases[24], 100, 100);
+    botton(100, 400, 110, 50, "volver a iniciar");
   }
 }
