@@ -200,10 +200,11 @@ function draw() {
     text(phrases[23], 100, 100);
     botton(100, 400, 110, 50, "Fin");
   }
-  if(dispositiva === "Fin"){
+  if(diapositiva === "Fin"){
     image(screens[24], 0, 0);
     fill(255);
     text(phrases[24], 100, 100);
     botton(100, 400, 110, 50, "volver a iniciar");
   }
 }
+
