@@ -8,6 +8,9 @@ let fondoJuego;
 let imgPiso;
 let imgNinio;
 let imgHoward;
+let sonidoSalto;
+let sonidoDerrota;
+let sonidoVictoria;
 
 function preload(){
   imginicio = loadImage('data/intro.jpg');
@@ -15,6 +18,9 @@ function preload(){
   imgPiso = loadImage('data/piso.jpg');
   imgNinio = loadImage('data/child.png');
   imgHoward = loadImage('data/howard.png');
+  sonidoSalto = loadSound('data/jump.mp3');
+  sonidoDerrota = loadSound('data/gameover.mp3');
+  sonidoVictoria = loadSound('data/victory.mp3');
 }
 
 function setup() {
@@ -40,6 +46,11 @@ function pantallaInicio(){
   textSize(40);
   text("Howard´s falling", width/2, 50);
   fill(255);
+  fill(0, 140);
+  rect(110, 130, 420, 230);
+  fill(255);
+  textSize(26);
+  text("el sr howard no debe caer en los hoyos. para saltar presiona s, si el sr howard cae en un hoyo pierdes, pero si aguanta 60 segundos sin caer ganas para reiniciar presiona r", 120, 140, 400, 210);
   textSize(22);
   text("presiona ENTER para comenzar", width/2, 420);
 }
@@ -60,3 +71,4 @@ function keyPressed(){
     }
   }
 }
+
