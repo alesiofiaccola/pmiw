@@ -57,17 +57,17 @@ class Game{
     this.ninio.dibujarNinio()
     
     let tiempoRestante = max(0, this.tiempoJuego - (millis() - this.tiempo)/ 1000);
-    fill(0);
+    fill(255);
     textAlign(LEFT);
     textSize(24);
     text("tiempo:" + tiempoRestante.toFixed(1), 20, 30);
     
     if(this.gameOver){
-      fill(0);
+      fill(255);
       textAlign(CENTER);
       textSize(40);
       text(this.victoria ? "has ganado" : "has perdido", width/2, height/2);
-      fill(0);
+      fill(255);
       textSize(22);
       text("presiona R para volver a jugar", width/2, height/2 + 40);
     }
@@ -83,4 +83,5 @@ class Game{
     this.generarHoyos();
   }
 }
+
 
