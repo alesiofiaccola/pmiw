@@ -33,12 +33,14 @@ class Game{
     this.ninio.actualizar(this.hoyos, this.y);
     
     if(this.howard.y > height){
+      sonidoDerrota.play();
       this.gameOver = true;
       this.victoria = false;
     }
     
     let finish = (millis() - this.tiempo) / 1000;
     if(finish >= this.tiempoJuego){
+      sonidoVictoria.play();
       this.gameOver = true;
       this.victoria = true;
     }
@@ -81,3 +83,4 @@ class Game{
     this.generarHoyos();
   }
 }
+
