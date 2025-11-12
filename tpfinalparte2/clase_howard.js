@@ -36,9 +36,11 @@ class Howard {
   }
   
   saltar() {
+    sonidoSalto.play();
     if(this.enSuelo){
       this.velY = -12;
       this.enSuelo = false;
     }
   } 
 }
+
