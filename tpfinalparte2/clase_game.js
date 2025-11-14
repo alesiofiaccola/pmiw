@@ -14,16 +14,21 @@ class Game{
   
   generarHoyos(){
     this.hoyos = [];
-    for(let x = 200; x < width*2; x +=400){
+    for(let x = 200; x < width*2; x += (300,500)){
       this.hoyos.push(new Hoyo(x, this.y));
     }
   }
   
   actualizar(){
+
+    // ─────────────────────────────
+    // SI EL JUEGO TERMINÓ, NO SE ACTUALIZA MÁS
+    // ─────────────────────────────
     if(this.gameOver){
       return;
     }
     
+    // Mover hoyos
     for(let Hoyo of this.hoyos){
       Hoyo.mover();
     }
@@ -31,13 +36,19 @@ class Game{
     this.piso.actualizar();
     this.howard.actualizar(this.hoyos, this.y);
     this.ninio.actualizar(this.hoyos, this.y);
-    
+
+    // ─────────────────────────────
+    // CONDICIÓN DE DERROTA
+    // ─────────────────────────────
     if(this.howard.y > height){
       sonidoDerrota.play();
       this.gameOver = true;
       this.victoria = false;
     }
-    
+
+    // ─────────────────────────────
+    // CONDICIÓN DE VICTORIA
+    // ─────────────────────────────
     let finish = (millis() - this.tiempo) / 1000;
     if(finish >= this.tiempoJuego){
       sonidoVictoria.play();
@@ -54,23 +65,31 @@ class Game{
     }
     
     this.howard.dibujarHoward();
-    this.ninio.dibujarNinio()
+    this.ninio.dibujarNinio();
     
+    // Cronómetro
     let tiempoRestante = max(0, this.tiempoJuego - (millis() - this.tiempo)/ 1000);
     fill(255);
     textAlign(LEFT);
     textSize(24);
-    text("tiempo:" + tiempoRestante.toFixed(1), 20, 30);
+    text("Tiempo: " + tiempoRestante.toFixed(1), 20, 30);
+    
     
     if(this.gameOver){
-      fill(255);
-      textAlign(CENTER);
-      textSize(40);
-      text(this.victoria ? "has ganado" : "has perdido", width/2, height/2);
-      fill(255);
-      textSize(22);
-      text("presiona R para volver a jugar", width/2, height/2 + 40);
+      if(this.victoria){
+        image(imgGanaste, 0, 0, width, height);
+        game.pantallaVictoria();
+      } else{
+        image(imgPerdiste, 0, 0, width, height);
+      }
     }
+  }
+  
+  pantallaVictoria(){
+    fill(255);
+    textAlign(CENTER);
+    textSize(28);
+    text('Presiona R para volver a jugar', width/2, height - 60);
   }
   
   reiniciar(){
@@ -83,5 +102,3 @@ class Game{
     this.generarHoyos();
   }
 }
-
-

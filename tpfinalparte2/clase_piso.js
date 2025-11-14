@@ -2,7 +2,7 @@ class Piso {
   constructor(x, y) {
    this.x = x;
    this.y = y;
-   this.vel = 3;
+   this.vel = 4;
    this.bloques = [];
    
       for(let i = 0; i < ceil(width / 480) + 1; i++){
@@ -21,7 +21,6 @@ class Piso {
   }
 
   dibujarPiso(){
-    fill(170, 200, 170);
     for(let bloque of this.bloques){
       image(imgPiso,bloque.x, bloque.y, 480, height - bloque.y);
     }
