@@ -52,10 +52,10 @@ class Howard {
     }
     
     if (this.y > height) {
-      if (estado !== "gameOver") {
+      if (game.estado !== "gameOver") {
         sonidoDerrota.play();
       }
-      estado = "gameOver";
+      game.estado = "gameOver";
     }
   }
   

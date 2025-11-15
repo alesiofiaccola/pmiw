@@ -1,7 +1,6 @@
 //alesio fiaccola y dalia pastene
 //comision 1
 
-let estado = "inicio";
 let game;
 let imginicio;
 let fondoJuego;
@@ -36,68 +35,39 @@ function setup() {
 
 function draw() {
   background(245);
-  if(estado === "inicio"){
-    pantallaInicio();
+  if(game.estado === "inicio"){
+    game.pantallaInicio();
   }
-  else if(estado === "enJuego"){
-    image(fondoJuego, 0, 0, width, height);
+  else if(game.estado === "enJuego"){
     game.actualizar();
     game.display();
   
   if(game.gameOver){
-    estado = "gameOver";
+    game.estado = "gameOver";
   }
   }
-  else if(estado === "gameOver"){
-    pantallaGameOver();
+  else if(game.estado === "gameOver"){
+    game.pantallaGameOver();
   }
-}
-
-function pantallaInicio() {
-  image(imginicio, 0, 0);
-  fill(255);
-  fill(255);
-  fill(0, 140);
-  rect(110, 300, 420, 100);
-  fill(255);
-  textSize(16);
-  textAlign(LEFT, TOP);
-  text('El Sr Howard no debe caer en los hoyos, para saltar presiona W, aguanta 60 segundos sin caer para ganar. REINICIA CON R', 130, 320, 420, 100);
-  textSize(22);
-  text('ENTER para comenzar', width/2, 420);
-  textSize(12);
-  text('Alesio Fiacola, Dalia Pastene (COMISIÓN 1)', 20, 450);
-}
-
-function pantallaGameOver(){
-  if(game.victoria){
-    image(imgGanaste, 0, 0, width, height);
-  }else{
-    image(imgPerdiste, 0, 0, width, height);
-  }
-  fill(255);
-  textAlign(CENTER);
-  textSize(28);
-  text('Presiona R para volver a jugar', width/2, height - 60);
 }
 
 function keyPressed(){
-  if(estado === "inicio" && keyCode === ENTER){
-    estado = "enJuego";
-    game = new Game();
+  if(game.estado === "inicio" && keyCode === ENTER){
+    game.estado = "enJuego";
+    game.reiniciar();
     return;
   }
   
-  if(estado === "enJuego"){
+  if(game.estado === "enJuego"){
     if(key === "w" || key === "W"){
       game.howard.saltar();
     }
   }
     
-  if (estado === "gameOver") {
+  if (game.estado === "gameOver") {
     if(key === "r" || key === "R"){
     game = new Game();
-    estado = "enJuego";
+    game.estado = "enJuego";
    }
   }
 }

@@ -2,7 +2,7 @@ class Piso {
   constructor(x, y) {
    this.x = x;
    this.y = y;
-   this.vel = 4;
+   this.vel = 3.5;
    this.bloques = [];
    
       for(let i = 0; i < ceil(width / 480) + 1; i++){
