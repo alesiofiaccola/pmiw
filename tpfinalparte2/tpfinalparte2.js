@@ -1,5 +1,6 @@
 //alesio fiaccola y dalia pastene
 //comision 1
+//https://www.youtube.com/watch?v=yG_HQQj5NUg
 
 let game;
 let imginicio;
@@ -71,3 +72,4 @@ function keyPressed(){
    }
   }
 }
+
